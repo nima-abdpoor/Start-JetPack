@@ -5,6 +5,8 @@ import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -16,16 +18,18 @@ import androidx.ui.tooling.preview.Preview
 
 @Composable
 fun RecipeCard(recipe: Recipe) {
-    val image  = imageResource(id = recipe.imageResource)
-    Column(modifier = Modifier.fillMaxWidth()) {
-        Image(
-                asset = image,
-                contentScale = ContentScale.Crop, modifier = Modifier.fillMaxWidth().height(144.dp)
-        )
-        Text(text = recipe.title ,textAlign = TextAlign.Center )
+    Surface(shape = RoundedCornerShape(8.dp) , elevation = 8.dp) {
+        val image  = imageResource(id = recipe.imageResource)
+        Column(modifier = Modifier.fillMaxWidth()) {
+            Image(
+                    asset = image,
+                    contentScale = ContentScale.Crop, modifier = Modifier.fillMaxWidth().height(144.dp)
+            )
+            Text(text = recipe.title ,textAlign = TextAlign.Center )
 
-        for(ingredient in recipe.ingredients){
-            Text(text = ingredient)
+            for(ingredient in recipe.ingredients){
+                Text(text = ingredient)
+            }
         }
     }
 }
