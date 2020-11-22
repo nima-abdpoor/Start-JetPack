@@ -30,7 +30,7 @@ fun RecipeCard(recipe: Recipe , modifier: Modifier) {
                 Text(text = recipe.title ,style = MaterialTheme.typography.h4 )
 
                 for(ingredient in recipe.ingredients){
-                    Text(text = ingredient)
+                    Text("• $ingredient")
                 }
             }
         }
