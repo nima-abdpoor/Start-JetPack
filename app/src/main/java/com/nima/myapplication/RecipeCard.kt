@@ -23,6 +23,10 @@ fun RecipeCard(recipe: Recipe) {
                 contentScale = ContentScale.Crop, modifier = Modifier.fillMaxWidth().height(144.dp)
         )
         Text(text = recipe.title ,textAlign = TextAlign.Center )
+
+        for(ingredient in recipe.ingredients){
+            Text(text = ingredient)
+        }
     }
 }
 
